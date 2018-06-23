@@ -46,6 +46,10 @@ namespace SimpleLifeCounterForY.ViewModels
 
         public DelegateCommand LifeResetCommand { get; private set; }
 
+        public DelegateCommand LeftHerfCommanf { get; private set; }
+        public DelegateCommand RightHerfCommanf { get; private set; }
+        
+
         public MainPageViewModel(INavigationService navigationService) 
             : base (navigationService)
         {
@@ -72,6 +76,9 @@ namespace SimpleLifeCounterForY.ViewModels
             Right1DownCommand = new DelegateCommand(() => RightLifePoint -= 1);
 
             LifeResetCommand = new DelegateCommand(LifeReset);
+
+            LeftHerfCommanf = new DelegateCommand(() => LeftLifePoint = Convert.ToInt32(Math.Ceiling((double)LeftLifePoint / 2)));
+            RightHerfCommanf = new DelegateCommand(() => RightLifePoint = Convert.ToInt32(Math.Ceiling((double)RightLifePoint / 2)));
 
             LifeReset();
         }

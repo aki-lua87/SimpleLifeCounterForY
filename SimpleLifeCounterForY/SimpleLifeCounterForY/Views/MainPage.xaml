@@ -121,23 +121,23 @@
         <Label 
            Text="{Binding LeftLifePoint}"
            TextColor="White"
-           FontSize="106"
-           HorizontalTextAlignment="Center"
+           FontSize="100"
+           HorizontalTextAlignment="End"
            VerticalTextAlignment="Center"
            AbsoluteLayout.LayoutFlags="All"
-           AbsoluteLayout.LayoutBounds="-0.15, 0.5, 0.6, 0.5" />
+           AbsoluteLayout.LayoutBounds="0.0, 0.5, 0.45, 0.5" />
 
         <Label 
            Text="{Binding RightLifePoint}"
            TextColor="White"
-           FontSize="106"
-           HorizontalTextAlignment="Center"
+           FontSize="100"
+           HorizontalTextAlignment="End"
            VerticalTextAlignment="Center"
            AbsoluteLayout.LayoutFlags="All"
            AbsoluteLayout.LayoutBounds="0.95, 0.5, 0.4, 0.5" />
 
         <Button 
-            Command="{Binding LLifeCommand}"
+            Command="{Binding LeftHerfCommanf}"
             Text="←半分"
             AbsoluteLayout.LayoutFlags="All"
             AbsoluteLayout.LayoutBounds="0.5, 0, 0.11, 0.18"/>
@@ -149,7 +149,7 @@
             AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.11, 0.18"/>
 
         <Button 
-            Command="{Binding RLifeCommand}"
+            Command="{Binding RightHerfCommanf}"
             Text="半分→"
             AbsoluteLayout.LayoutFlags="All"
             AbsoluteLayout.LayoutBounds="0.5, 1, 0.11, 0.18"/>
