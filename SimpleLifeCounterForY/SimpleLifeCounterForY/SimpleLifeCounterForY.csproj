@@ -5,6 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\bg1.png" />
+    <None Remove="Resources\bg17.jpg" />
+    <None Remove="Resources\bg2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\bg1.png" />
+    <EmbeddedResource Include="Resources\bg2.jpg" />
+    <EmbeddedResource Include="Resources\bg17.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
     <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.396" />
   </ItemGroup>
