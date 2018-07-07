@@ -2,118 +2,123 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SimpleLifeCounterForY.Views.MainPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}" >
 
-    <AbsoluteLayout
-        BackgroundColor="Blue">
+    <AbsoluteLayout>
+
+        <Image 
+                Source="{Binding Source}"
+                Aspect = "AspectFill"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"/>
 
         <!-- 値増減用ボタン　-->
         <!-- 左上　-->
         <Button Text="UP"
-            Command="{Binding Left1000UpCommand}"
-            BackgroundColor="Blue"
-            BorderColor="Blue"
-            AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0.05, 0, 0.1, 0.5"/>
+                Command="{Binding Left1000UpCommand}"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0.05, 0, 0.1, 0.4"/>
         <Button Text="UP"
                 Command="{Binding Left100UpCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.16, 0, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.16, 0, 0.1, 0.4"/>
         <Button Text="UP"
                 Command="{Binding Left10UpCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.27, 0, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.27, 0, 0.1, 0.4"/>
         <Button Text="UP"
                 Command="{Binding Left1UpCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.38, 0, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.38, 0, 0.1, 0.4"/>
 
         <!-- 左下　-->
         <Button Text="DOWN"
                 Command="{Binding Left1000DownCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.05, 1, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.05, 1, 0.1, 0.4"/>
         <Button Text="DOWN"
                 Command="{Binding Left100DownCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.16, 1, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.16, 1, 0.1, 0.4"/>
         <Button Text="DOWN"
                 Command="{Binding Left10DownCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.27, 1, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.27, 1, 0.1, 0.4"/>
         <Button Text="DOWN"
                 Command="{Binding Left1DownCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.38, 1, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.38, 1, 0.1, 0.4"/>
 
         <!-- 右上　-->
         <Button Text="UP"
-            Command="{Binding Right1UpCommand}"
-            BackgroundColor="Blue"
-            BorderColor="Blue"
-            AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0.95, 0, 0.1, 0.5"/>
+                Command="{Binding Right1UpCommand}"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0.95, 0, 0.1, 0.4"/>
         <Button Text="UP"
                 Command="{Binding Right10UpCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.84, 0, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.84, 0, 0.1, 0.4"/>
         <Button Text="UP"
                 Command="{Binding Right100UpCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.73, 0, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.73, 0, 0.1, 0.4"/>
         <Button Text="UP"
                 Command="{Binding Right1000UpCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.62, 0, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.62, 0, 0.1, 0.4"/>
 
         <!-- 右下　-->
         <Button Text="DOWN"
-            Command="{Binding Right1DownCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
-            AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0.95, 1, 0.1, 0.5"/>
+                Command="{Binding Right1DownCommand}"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0.95, 1, 0.1, 0.4"/>
         <Button Text="DOWN"
                 Command="{Binding Right10DownCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.84, 1, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.84, 1, 0.1, 0.4"/>
         <Button Text="DOWN"
                 Command="{Binding Right100DownCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.73, 1, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.73, 1, 0.1, 0.4"/>
         <Button Text="DOWN"
                 Command="{Binding Right1000DownCommand}"
-                BackgroundColor="Blue"
-                BorderColor="Blue"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.62, 1, 0.1, 0.5"/>
+                AbsoluteLayout.LayoutBounds="0.62, 1, 0.1, 0.4"/>
 
         <!-- 縦棒 設定とかダイスとかの裏の色 -->
-        <BoxView Color="Blue"
+        <BoxView Color="Transparent"
              AbsoluteLayout.LayoutFlags="All"
              AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.1, 1.5"/>
 
@@ -121,38 +126,55 @@
         <Label 
            Text="{Binding LeftLifePoint}"
            TextColor="White"
-           FontSize="106"
-           HorizontalTextAlignment="Center"
+           FontSize="110"
+           HorizontalTextAlignment="End"
            VerticalTextAlignment="Center"
            AbsoluteLayout.LayoutFlags="All"
-           AbsoluteLayout.LayoutBounds="-0.15, 0.5, 0.6, 0.5" />
+           AbsoluteLayout.LayoutBounds="0.0, 0.5, 0.44, 0.5" />
 
         <Label 
            Text="{Binding RightLifePoint}"
            TextColor="White"
-           FontSize="106"
-           HorizontalTextAlignment="Center"
+           FontSize="110"
+           HorizontalTextAlignment="End"
            VerticalTextAlignment="Center"
            AbsoluteLayout.LayoutFlags="All"
-           AbsoluteLayout.LayoutBounds="0.95, 0.5, 0.4, 0.5" />
+           AbsoluteLayout.LayoutBounds="0.90, 0.5, 0.4, 0.5" />
 
         <Button 
-            Command="{Binding LLifeCommand}"
+            Command="{Binding LeftHerfCommanf}"
+            BackgroundColor="Transparent"
             Text="←半分"
             AbsoluteLayout.LayoutFlags="All"
             AbsoluteLayout.LayoutBounds="0.5, 0, 0.11, 0.18"/>
 
         <Button
+            Command="{Binding UndoCommand}"
+            BackgroundColor="Transparent"
+            Text="UNDO"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.5, 0.25, 0.11, 0.18"/>
+
+        <Button
             Command="{Binding LifeResetCommand}"
+            BackgroundColor="Transparent"
             Text="リセット"
             AbsoluteLayout.LayoutFlags="All"
             AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.11, 0.18"/>
 
+        <Button
+            Command="{Binding BackgroungCommand}"
+            BackgroundColor="Transparent"
+            Text="壁紙(未)"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.5, 0.75, 0.11, 0.18"/>
+
         <Button 
-            Command="{Binding RLifeCommand}"
+            Command="{Binding RightHerfCommanf}"
+            BackgroundColor="Transparent"
             Text="半分→"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0.5, 1, 0.11, 0.18"/>
+            AbsoluteLayout.LayoutBounds="0.5, 1.00, 0.11, 0.18"/>
 
     </AbsoluteLayout>
 
