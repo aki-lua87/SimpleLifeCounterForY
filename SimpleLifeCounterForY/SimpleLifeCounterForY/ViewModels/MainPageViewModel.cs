@@ -6,16 +6,30 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Prism.Services;
+using SimpleLifeCounterForY.Models;
 using Xamarin.Forms;
 
 namespace SimpleLifeCounterForY.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        private string _bg;
-        public ImageSource Source { get; set; }
+        private IFileIO FileIO { get; }
+        private readonly IPageDialogService _pageDialogService;
 
-        private Stack<(int,int)> UndoStack = new Stack<(int, int)>();
+        private static string filePath;
+
+
+        private ImageSource _backgtoundImage;
+        public ImageSource BackgtoundImage
+        {
+            get { return this._backgtoundImage; }
+            set { this.SetProperty(ref this._backgtoundImage, value); }
+        }
+
+        // public ImageSource Source { get; set; }
+
+        private Stack<(int, int)> UndoStack = new Stack<(int, int)>();
 
         private int _left;
         public int LeftLifePoint
@@ -57,12 +71,31 @@ namespace SimpleLifeCounterForY.ViewModels
 
         public DelegateCommand LeftHerfCommanf { get; private set; }
         public DelegateCommand RightHerfCommanf { get; private set; }
-        
 
-        public MainPageViewModel(INavigationService navigationService) 
-            : base (navigationService)
+
+        public MainPageViewModel(INavigationService navigationService, IFileIO filrIo, IPageDialogService pageDialogService)
+            : base(navigationService)
         {
-            Source = ImageSource.FromResource(@"SimpleLifeCounterForY.Resources.bg17.jpg");
+            FileIO = filrIo;
+            _pageDialogService = pageDialogService;
+
+            var aaa = "CONTENT://COM.ANDROID.PROVIDERS.MEDIA.DOCUMENTS/DOCUMENT/IMAGE%3A226760";
+            //Source = new UriImageSource
+            //{
+            //    // Uri = new Uri(aaa),
+            //    Uri = new Uri(aaa),
+            //    // CachingEnabled = false,
+            //    // CacheValidity = new TimeSpan(5, 0, 0, 0)
+            //};
+            //Source = ImageSource.FromUri(new Uri(aaa));
+            //Source = ImageSource.FromResource(@"SimpleLifeCounterForY.Resources.bg17.jpg");
+            //Source = ImageSource.FromResource(@"SimpleLifeCounterForY.Resources.bg2.jpg");
+
+            System.Diagnostics.Debug.WriteLine("ログ出力1");
+            System.Diagnostics.Debug.WriteLine("ログ出力2");
+            System.Diagnostics.Debug.WriteLine("ログ出力3");
+            System.Diagnostics.Debug.WriteLine("ログ出力4");
+            System.Diagnostics.Debug.WriteLine("ログ出力5");
 
             Left1000UpCommand = new DelegateCommand(() => ChangeLeftLife(1000));
             Left100UpCommand = new DelegateCommand(() => ChangeLeftLife(100));
@@ -121,7 +154,7 @@ namespace SimpleLifeCounterForY.ViewModels
         private void HerfRightLife()
         {
             UndoStack.Push((LeftLifePoint, RightLifePoint));
-            RightLifePoint = Convert.ToInt32(Math.Ceiling((double) RightLifePoint / 2));
+            RightLifePoint = Convert.ToInt32(Math.Ceiling((double)RightLifePoint / 2));
         }
 
         private void Undo()
@@ -133,12 +166,31 @@ namespace SimpleLifeCounterForY.ViewModels
             var que = UndoStack.Pop();
             LeftLifePoint = que.Item1;
             RightLifePoint = que.Item2;
+
+            
         }
 
         private void BackgroungChange()
         {
-            // 動かない
-            Source = ImageSource.FromResource(@"SimpleLifeCounterForY.Resources.bg1.png");
+            
+
+            if (MainPageViewModel.filePath != null)
+            {
+                BackgtoundImage = ImageSource.FromFile(MainPageViewModel.filePath);
+                LeftLifePoint += 100;
+                return;
+            }
+            FileIO.ShowImageList();
+            // BackgtoundImage.Source = ImageSource.FromFile(filePath);
+            // BackgtoundImage.Source = ImageSource.FromFile(url);
+        }
+
+        public static void SetPickupImageSource(string filePath)
+        {
+            System.Diagnostics.Debug.WriteLine("ログ出力112345567");
+            System.Diagnostics.Debug.WriteLine($"ログ114　{filePath} 514");
+            // += 100;
+            MainPageViewModel.filePath = filePath;
         }
     }
 }

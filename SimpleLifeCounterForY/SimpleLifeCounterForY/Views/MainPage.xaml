@@ -7,7 +7,7 @@
     <AbsoluteLayout>
 
         <Image 
-                Source="{Binding Source}"
+                Source="{Binding BackgtoundImage}"
                 Aspect = "AspectFill"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"/>
