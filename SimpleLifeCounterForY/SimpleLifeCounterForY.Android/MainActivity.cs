@@ -1,9 +1,13 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using Android.Preferences;
 using Android.Views;
 using Prism;
 using Prism.Ioc;
+using SimpleLifeCounterForY.Models;
 
 namespace SimpleLifeCounterForY.Droid
 {
@@ -25,6 +29,22 @@ namespace SimpleLifeCounterForY.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App(new AndroidInitializer()));
+
+            //var intent = new Intent(Intent.ActionOpenDocument);
+            //intent.AddCategory(Intent.CategoryOpenable);
+            //intent.SetType("image/*");
+            //StartActivity(intent);
+        }
+
+        // 以下コピペ
+        public event EventHandler<PreferenceManager.ActivityResultEventArgs> ActivityResult = delegate { };
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            // resultEventArgsの第1引数(Handled)は、ハンドル後に特に使う用事がなければtrueでもfalseでも問題なさそう
+            var resultEventArgs = new PreferenceManager.ActivityResultEventArgs(true, requestCode, resultCode, data);
+            ActivityResult(this, resultEventArgs);
         }
     }
 
@@ -32,6 +52,7 @@ namespace SimpleLifeCounterForY.Droid
     {
         public void RegisterTypes(IContainerRegistry container)
         {
+            container.Register<IFileIO, FileIo>();
             // Register any platform specific implementations
         }
     }

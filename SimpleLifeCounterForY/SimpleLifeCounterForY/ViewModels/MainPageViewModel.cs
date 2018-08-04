@@ -6,16 +6,34 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Prism.Services;
+using SimpleLifeCounterForY.Models;
 using Xamarin.Forms;
 
 namespace SimpleLifeCounterForY.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        private string _bg;
-        public ImageSource Source { get; set; }
+        private IFileIO FileIO { get; }
+        private readonly IPageDialogService _pageDialogService;
 
-        private Stack<(int,int)> UndoStack = new Stack<(int, int)>();
+        private static string filePath;
+
+        private string _bGColoer;
+        public string BGColoer
+        {
+            get { return this._bGColoer; }
+            set { this.SetProperty(ref this._bGColoer, value); }
+        }
+
+        private string _buttonColoer;
+        public string ButtonColoer
+        {
+            get { return this._buttonColoer; }
+            set { this.SetProperty(ref this._buttonColoer, value); }
+        }
+
+        private Stack<(int, int)> UndoStack = new Stack<(int, int)>();
 
         private int _left;
         public int LeftLifePoint
@@ -57,12 +75,16 @@ namespace SimpleLifeCounterForY.ViewModels
 
         public DelegateCommand LeftHerfCommanf { get; private set; }
         public DelegateCommand RightHerfCommanf { get; private set; }
-        
 
-        public MainPageViewModel(INavigationService navigationService) 
-            : base (navigationService)
+
+        public MainPageViewModel(INavigationService navigationService, IFileIO filrIo, IPageDialogService pageDialogService)
+            : base(navigationService)
         {
-            Source = ImageSource.FromResource(@"SimpleLifeCounterForY.Resources.bg17.jpg");
+            BGColoer = "Blue";
+            ButtonColoer = "Default";
+
+            FileIO = filrIo;
+            _pageDialogService = pageDialogService;
 
             Left1000UpCommand = new DelegateCommand(() => ChangeLeftLife(1000));
             Left100UpCommand = new DelegateCommand(() => ChangeLeftLife(100));
@@ -121,7 +143,7 @@ namespace SimpleLifeCounterForY.ViewModels
         private void HerfRightLife()
         {
             UndoStack.Push((LeftLifePoint, RightLifePoint));
-            RightLifePoint = Convert.ToInt32(Math.Ceiling((double) RightLifePoint / 2));
+            RightLifePoint = Convert.ToInt32(Math.Ceiling((double)RightLifePoint / 2));
         }
 
         private void Undo()
@@ -133,12 +155,13 @@ namespace SimpleLifeCounterForY.ViewModels
             var que = UndoStack.Pop();
             LeftLifePoint = que.Item1;
             RightLifePoint = que.Item2;
+
+            
         }
 
         private void BackgroungChange()
         {
-            // 動かない
-            Source = ImageSource.FromResource(@"SimpleLifeCounterForY.Resources.bg1.png");
+
         }
     }
 }
