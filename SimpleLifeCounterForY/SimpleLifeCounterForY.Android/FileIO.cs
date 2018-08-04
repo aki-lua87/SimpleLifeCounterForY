@@ -80,12 +80,12 @@ namespace SimpleLifeCounterForY.Droid
                         {
                             foreach (var s in columns)
                             {
-                                MainPageViewModel.SetPickupImageSource(s);
+                                // MainPageViewModel.SetPickupImageSource(s);
                             }
                             while (cur.MoveToNext())
                             {
                                 filePath = cur.GetString(0);
-                                MainPageViewModel.SetPickupImageSource(filePath);
+                                // MainPageViewModel.SetPickupImageSource(filePath);
                             }
                         }
                         this.url = filePath;
@@ -108,14 +108,14 @@ namespace SimpleLifeCounterForY.Droid
             ICursor cur = null;
             try
             {
-                // 選択した画像のパスを取得する
+
                 string[] columns = { Android.Provider.MediaStore.Images.Media.InterfaceConsts.Data };
                 cur = mainActivity.ContentResolver.Query(data.Data, columns, null, null, null);
                 if (cur != null &&
                     cur.MoveToFirst())
                 {
                     filePath = cur.GetString(0);
-                    MainPageViewModel.SetPickupImageSource(filePath);
+                    // MainPageViewModel.SetPickupImageSource(filePath);
                 }
                 return filePath;
             }

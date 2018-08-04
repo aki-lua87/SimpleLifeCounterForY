@@ -19,15 +19,19 @@ namespace SimpleLifeCounterForY.ViewModels
 
         private static string filePath;
 
-
-        private ImageSource _backgtoundImage;
-        public ImageSource BackgtoundImage
+        private string _bGColoer;
+        public string BGColoer
         {
-            get { return this._backgtoundImage; }
-            set { this.SetProperty(ref this._backgtoundImage, value); }
+            get { return this._bGColoer; }
+            set { this.SetProperty(ref this._bGColoer, value); }
         }
 
-        // public ImageSource Source { get; set; }
+        private string _buttonColoer;
+        public string ButtonColoer
+        {
+            get { return this._buttonColoer; }
+            set { this.SetProperty(ref this._buttonColoer, value); }
+        }
 
         private Stack<(int, int)> UndoStack = new Stack<(int, int)>();
 
@@ -76,26 +80,11 @@ namespace SimpleLifeCounterForY.ViewModels
         public MainPageViewModel(INavigationService navigationService, IFileIO filrIo, IPageDialogService pageDialogService)
             : base(navigationService)
         {
+            BGColoer = "Blue";
+            ButtonColoer = "Default";
+
             FileIO = filrIo;
             _pageDialogService = pageDialogService;
-
-            var aaa = "CONTENT://COM.ANDROID.PROVIDERS.MEDIA.DOCUMENTS/DOCUMENT/IMAGE%3A226760";
-            //Source = new UriImageSource
-            //{
-            //    // Uri = new Uri(aaa),
-            //    Uri = new Uri(aaa),
-            //    // CachingEnabled = false,
-            //    // CacheValidity = new TimeSpan(5, 0, 0, 0)
-            //};
-            //Source = ImageSource.FromUri(new Uri(aaa));
-            //Source = ImageSource.FromResource(@"SimpleLifeCounterForY.Resources.bg17.jpg");
-            //Source = ImageSource.FromResource(@"SimpleLifeCounterForY.Resources.bg2.jpg");
-
-            System.Diagnostics.Debug.WriteLine("ログ出力1");
-            System.Diagnostics.Debug.WriteLine("ログ出力2");
-            System.Diagnostics.Debug.WriteLine("ログ出力3");
-            System.Diagnostics.Debug.WriteLine("ログ出力4");
-            System.Diagnostics.Debug.WriteLine("ログ出力5");
 
             Left1000UpCommand = new DelegateCommand(() => ChangeLeftLife(1000));
             Left100UpCommand = new DelegateCommand(() => ChangeLeftLife(100));
@@ -172,25 +161,7 @@ namespace SimpleLifeCounterForY.ViewModels
 
         private void BackgroungChange()
         {
-            
 
-            if (MainPageViewModel.filePath != null)
-            {
-                BackgtoundImage = ImageSource.FromFile(MainPageViewModel.filePath);
-                LeftLifePoint += 100;
-                return;
-            }
-            FileIO.ShowImageList();
-            // BackgtoundImage.Source = ImageSource.FromFile(filePath);
-            // BackgtoundImage.Source = ImageSource.FromFile(url);
-        }
-
-        public static void SetPickupImageSource(string filePath)
-        {
-            System.Diagnostics.Debug.WriteLine("ログ出力112345567");
-            System.Diagnostics.Debug.WriteLine($"ログ114　{filePath} 514");
-            // += 100;
-            MainPageViewModel.filePath = filePath;
         }
     }
 }
