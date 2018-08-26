@@ -13,6 +13,25 @@
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"/>
 
+        <!-- ライフ数値 -->
+        <Label 
+            Text="{Binding LeftLifePoint}"
+            TextColor="White"
+            FontSize="100"
+            HorizontalTextAlignment="End"
+            VerticalTextAlignment="Center"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.0, 0.5, 0.44, 0.5" />
+
+        <Label 
+            Text="{Binding RightLifePoint}"
+            TextColor="White"
+            FontSize="100"
+            HorizontalTextAlignment="End"
+            VerticalTextAlignment="Center"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.90, 0.5, 0.4, 0.5" />
+
         <!-- 値増減用ボタン　-->
         <!-- 左上　-->
         <Button Text="UP"
@@ -118,29 +137,10 @@
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0.62, 1, 0.1, 0.4"/>
 
-        <!-- 縦棒 設定とかダイスとかの裏の色 -->
+        <!-- ボタンの裏の色 -->
         <BoxView Color="{Binding BGColoer}"
              AbsoluteLayout.LayoutFlags="All"
              AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.1, 1.5"/>
-
-        <!-- ライフ数値 -->
-        <Label 
-           Text="{Binding LeftLifePoint}"
-           TextColor="White"
-           FontSize="100"
-           HorizontalTextAlignment="End"
-           VerticalTextAlignment="Center"
-           AbsoluteLayout.LayoutFlags="All"
-           AbsoluteLayout.LayoutBounds="0.0, 0.5, 0.44, 0.5" />
-
-        <Label 
-           Text="{Binding RightLifePoint}"
-           TextColor="White"
-           FontSize="100"
-           HorizontalTextAlignment="End"
-           VerticalTextAlignment="Center"
-           AbsoluteLayout.LayoutFlags="All"
-           AbsoluteLayout.LayoutBounds="0.90, 0.5, 0.4, 0.5" />
 
         <Button 
             Command="{Binding LeftHerfCommanf}"
